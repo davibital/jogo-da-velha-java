@@ -31,7 +31,7 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-+\_main (String[]) : void\_
+\+ __main (String[]) : void__
 
 ---
 
@@ -43,17 +43,14 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
--nomeJogador : String
-
--simbolo : char
+\- nomeJogador : String   
+\- simbolo : char   
 
 ---
 
-+Jogador (String, char)
-
--gerarNumeroAleatorio () : int
-
-+fazerJogada (Tabuleiro) : void
+\+ Jogador (String, char)   
+\- gerarNumeroAleatorio () : int   
+\+ fazerJogada (Tabuleiro) : void   
 
 ---
 
@@ -65,29 +62,20 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-+estadoTabuleiro : char [][]
-
-+jogada : int
-
-+ultimoJogador : String
-
-+jogoEmAndamento : boolean
+\+ estadoTabuleiro : char [][]  
+\+ jogada : int  
+\+ ultimoJogador : String  
+\+ jogoEmAndamento : boolean  
 
 ---
 
-+Tabuleiro ()
-
-+mostrarTabuleiro () : void
-
-+verificarPosicao (int, int) : boolean
-
-+verificarLinhas () : String
-
-+verificarColunas () : String
-
-+verificarDiagonais () : String
-
-+verificarTabuleiro () : void
+\+ Tabuleiro ()  
+\+ mostrarTabuleiro () : void  
+\+ verificarPosicao (int, int) : boolean  
+\+ verificarLinhas () : String  
+\+ verificarColunas () : String  
+\+ verificarDiagonais () : String  
+\+ verificarTabuleiro () : void  
 
 ---
 
@@ -95,16 +83,13 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-### ModoDeJogo
+### ModoDeJogo  
 
 ---
 
-+jogadorContraJogador (Jogador, Jogador, Tabuleiro) : void
-
-+jogadorContraComputador (Jogador, Jogador, Tabuleiro) : void
-
-+computadorContraComputador (Jogador, Jogador, Tabuleiro) : void
-
+\+ jogadorContraJogador (Jogador, Jogador, Tabuleiro) : void  
+\+ jogadorContraComputador (Jogador, Jogador, Tabuleiro) : void  
+\+ computadorContraComputador (Jogador, Jogador, Tabuleiro) : void  
 
 ---
 
