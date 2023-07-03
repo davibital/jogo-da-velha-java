@@ -62,10 +62,13 @@ class Jogador {
           linha = 2;
           coluna = 1;
           break;
-        default:
+        case 9:
           linha = 2;
           coluna = 2;
           break;
+        default:
+          System.out.println("Posicao invalida!");
+          return;
       }
     }
 
@@ -119,10 +122,13 @@ class Jogador {
           linha = 2;
           coluna = 1;
           break;
-        default:
+        case 9:
           linha = 2;
           coluna = 2;
           break;
+        default:
+          System.out.println("Posicao invalida!");
+          return;
       }
     }
 
