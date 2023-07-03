@@ -23,6 +23,8 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ## Diagrama de classes
 
+
+
 ---
 
 ### Main
@@ -42,12 +44,15 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 ---
 
 -nomeJogador : String
+
 -simbolo : char
 
 ---
 
 +Jogador (String, char)
+
 -gerarNumeroAleatorio () : int
+
 +fazerJogada (Tabuleiro) : void
 
 ---
@@ -61,21 +66,32 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 ---
 
 +estadoTabuleiro : char [][]
+
 +jogada : int
+
 +ultimoJogador : String
+
 +jogoEmAndamento : boolean
 
 ---
 
 +Tabuleiro ()
+
 +mostrarTabuleiro () : void
+
 +verificarPosicao (int, int) : boolean
+
 +verificarLinhas () : String
+
 +verificarColunas () : String
+
 +verificarDiagonais () : String
+
 +verificarTabuleiro () : void
 
 ---
+
+
 
 ---
 
@@ -84,9 +100,12 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 ---
 
 +jogadorContraJogador (Jogador, Jogador, Tabuleiro) : void
+
 +jogadorContraComputador (Jogador, Jogador, Tabuleiro) : void
-+ComputadorContraComputador (Jogador, Jogador, Tabuleiro) : void
- 
+
++computadorContraComputador (Jogador, Jogador, Tabuleiro) : void
+
+
 ---
 
 
