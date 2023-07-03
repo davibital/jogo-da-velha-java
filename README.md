@@ -31,11 +31,11 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-+__main (String[]) : void__
++_main (String[]) : void_
 
 ---
 
-
+&nbsp;
 
 --- 
 
@@ -57,7 +57,7 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-
+&nbsp;
 
 ---
 
@@ -91,7 +91,7 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-
+&nbsp;
 
 ---
 
@@ -108,7 +108,7 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-
+&nbsp;
 
 ## Autor
 
