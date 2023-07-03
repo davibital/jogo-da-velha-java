@@ -31,7 +31,7 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ---
 
-+_main (String[]) : void_
++\_main (String[]) : void\_
 
 ---
 
