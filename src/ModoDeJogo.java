@@ -1,65 +1,114 @@
 import java.util.Scanner;
+import java.util.Random;
 
 class ModoDeJogo {
+  String nomeJogador1, nomeJogador2;
+  Scanner keyboard = new Scanner(System.in);
+  Jogador jogadores[];
+  Tabuleiro tabuleiro;
+  int jogadorVez;
   
-  public void jogadorContraJogador (Jogador jogador1, Jogador jogador2, Tabuleiro tabuleiro) {
-    Scanner keyboard = new Scanner(System.in);
-    int posicao;
+  public void jogadorContraJogador () {
+    Random random = new Random();
+    tabuleiro = new Tabuleiro();
+    int linha, coluna;
+    jogadorVez = random.nextInt(2);
+    
+    System.out.println("Digite o nome do primeiro jogador (este jogara com o simbolo X): ");
+    nomeJogador1 = keyboard.nextLine();
+    
+    System.out.println("Digite o nome do segundo jogador (este jogara com o simbolo O): ");
+    nomeJogador2 = keyboard.nextLine();
 
+    jogadores = new Jogador[] {new JogadorHumano(nomeJogador1, 'X'), new JogadorHumano(nomeJogador2, 'O')};
+    
     while (tabuleiro.jogoEmAndamento) {
-      posicao = keyboard.nextInt();
-      jogador1.fazerJogada(tabuleiro, posicao);
       tabuleiro.mostrarTabuleiro();
-      tabuleiro.verificarTabuleiro();
 
-      // Quebra do laço caso o primeiro jogador tenha vencido a partida na sua jogada.
-      if (!tabuleiro.jogoEmAndamento)
-        break;
+      System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
+      System.out.print("Linha: ");
+      linha = keyboard.nextInt();
+      System.out.print("\nColuna: ");
+      coluna = keyboard.nextInt();
+
+      if (!tabuleiro.verificarPosicao(linha, coluna) || linha > 2 || coluna > 2 || linha < 0 || coluna < 0) {
+        System.out.println("Posicao invalida, faca uma nova jogada.");
+        continue;
+      }
+
+      jogadores[jogadorVez].fazerJogada(tabuleiro, linha, coluna);
       
-      posicao = keyboard.nextInt();
-      jogador2.fazerJogada(tabuleiro, posicao);
       tabuleiro.mostrarTabuleiro();
       tabuleiro.verificarTabuleiro();
+      jogadorVez = (jogadorVez + 1) % 2;
     }
 
     keyboard.close();
   }
 
-  public void jogadorContraComputador (Jogador jogador1, Jogador jogador2, Tabuleiro tabuleiro) {
-    Scanner keyboard = new Scanner(System.in);
-    int posicao;
+  public void jogadorContraComputador () {
+    Random random = new Random();
+    tabuleiro = new Tabuleiro();
+    int linha, coluna;
+    jogadorVez = random.nextInt(2);
+    
+    System.out.println("Digite o nome do primeiro jogador (este jogara com o simbolo X): ");
+    nomeJogador1 = keyboard.nextLine();
+    
+    System.out.println("Digite o nome do segundo jogador (este jogara com o simbolo O): ");
+    nomeJogador2 = keyboard.nextLine();
 
+    jogadores = new Jogador[] {new JogadorHumano(nomeJogador1, 'X'), new JogadorArtificial(nomeJogador2, 'O')};
+    
     while (tabuleiro.jogoEmAndamento) {
-      posicao = keyboard.nextInt();
-      jogador1.fazerJogada(tabuleiro, posicao);
       tabuleiro.mostrarTabuleiro();
-      tabuleiro.verificarTabuleiro();
+      if (jogadorVez == 0) {
+        System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
+        System.out.print("Linha: ");
+        linha = keyboard.nextInt();
+        System.out.print("\nColuna: ");
+        coluna = keyboard.nextInt();
+        if (!tabuleiro.verificarPosicao(linha, coluna) || linha > 2 || coluna > 2 || linha < 0 || coluna < 0) {
+          System.out.println("Posicao invalida, faca uma nova jogada.");
+          continue;
+        }
 
-      // Quebra do laço caso o primeiro jogador tenha vencido a partida na sua jogada.
-      if (!tabuleiro.jogoEmAndamento)
-        break;
-      
-      jogador2.fazerJogada(tabuleiro);
+        jogadores[jogadorVez].fazerJogada(tabuleiro, linha, coluna);
+
+      } else {
+        System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
+        jogadores[jogadorVez].fazerJogada(tabuleiro);
+      }
+
       tabuleiro.mostrarTabuleiro();
       tabuleiro.verificarTabuleiro();
+      jogadorVez = (jogadorVez + 1) % 2;
     }
 
     keyboard.close();
   }
 
-  public void computadorContraComputador (Jogador jogador1, Jogador jogador2, Tabuleiro tabuleiro) {
-    while (tabuleiro.jogoEmAndamento) {
-      jogador1.fazerJogada(tabuleiro);
-      tabuleiro.mostrarTabuleiro();
-      tabuleiro.verificarTabuleiro();
+  public void computadorContraComputador () {
+    Random random = new Random();
+    tabuleiro = new Tabuleiro();
+    jogadorVez = random.nextInt(2);
+    
+    System.out.println("Digite o nome do primeiro jogador (este jogara com o simbolo X): ");
+    nomeJogador1 = keyboard.nextLine();
+    
+    System.out.println("Digite o nome do segundo jogador (este jogara com o simbolo O): ");
+    nomeJogador2 = keyboard.nextLine();
 
-      // Quebra do laço caso o primeiro jogador tenha vencido a partida na sua jogada.
-      if (!tabuleiro.jogoEmAndamento)
-        break;
-      
-      jogador2.fazerJogada(tabuleiro);
+    jogadores = new Jogador[] {new JogadorArtificial(nomeJogador1, 'X'), new JogadorArtificial(nomeJogador2, 'O')};
+    
+    while (tabuleiro.jogoEmAndamento) {
+      tabuleiro.mostrarTabuleiro();
+      System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
+      jogadores[jogadorVez].fazerJogada(tabuleiro);
+
       tabuleiro.mostrarTabuleiro();
       tabuleiro.verificarTabuleiro();
+      jogadorVez = (jogadorVez + 1) % 2;
     }
   }
 

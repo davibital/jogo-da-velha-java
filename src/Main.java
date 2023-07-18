@@ -3,41 +3,31 @@ import java.util.Scanner;
 public class Main {
   public static void main (String args[]) {
     Scanner keyboard = new Scanner(System.in);
-    String nomeJogador1, nomeJogador2;
     int modoDeJogo;
+    ModoDeJogo jogoSelecionado = new ModoDeJogo();
 
-    System.out.println("Digite o nome do primeiro jogador (este jogara com o simbolo X): ");
-    nomeJogador1 = keyboard.nextLine();
-
-    System.out.println("Digite o nome do segundo jogador (este jogara com o simbolo O): ");
-    nomeJogador2 = keyboard.nextLine();
+    System.out.println("Este eh o classico jogo da velha, disputado por 2 jogadores, cujo objetivo deles eh formar uma linha ou coluna ou diagonal com o seu respectivo simbolo. O jogo eh jogado em turnos e cada posicao eh determinada pelo numero da linha e numero da coluna, de forma similar ao jogo de batalha naval (a numeracao das linhas e das colunas vao de 0 a 2)");
     
     System.out.println("\nSelecione o modo de jogo: ");
     System.out.print("Jogador contra Jogador (digite 1)\nJogador contra Computador (digite 2)\nComputador contra Computador (digite 3)\n");
-    modoDeJogo = keyboard.nextInt();
-
-    Jogador jogador1 = new Jogador(nomeJogador1, 'X');
-    Jogador jogador2 = new Jogador(nomeJogador2, 'O');
-    Tabuleiro tabuleiro = new Tabuleiro();
-    ModoDeJogo jogoSelecionado = new ModoDeJogo();
-    tabuleiro.mostrarTabuleiro();
+    modoDeJogo = keyboard.nextInt();    
 
     switch (modoDeJogo) {
       case 1:
-        jogoSelecionado.jogadorContraJogador(jogador1, jogador2, tabuleiro);
+        jogoSelecionado.jogadorContraJogador();
         break;
       case 2:
-        jogoSelecionado.jogadorContraComputador(jogador1, jogador2, tabuleiro);
+        jogoSelecionado.jogadorContraComputador();
         break;
       case 3:
-        jogoSelecionado.computadorContraComputador(jogador1, jogador2, tabuleiro);
+        jogoSelecionado.computadorContraComputador();
         break;
       default:
         System.out.println("Modo de jogo invalido!");
         break;
     }
 
-    
+    keyboard.close();
   }
     
 }
