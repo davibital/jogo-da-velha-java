@@ -73,11 +73,15 @@ class Tabuleiro {
   void verificarTabuleiro() {
     // O jogo se encerra com vitória apenas se o jogador completar uma linha ou uma coluna ou uma diagonal com os seus símbolos.
     if (verificarLinhas() == "completa" || verificarColunas() == "completa" || verificarDiagonais() == "completa") {
+      this.mostrarTabuleiro();
+      
       System.out.println("A partida finalizou com vitoria de " + ultimoJogador + "!");
       jogoEmAndamento = false;
     }
     // Ou se o tabuleiro todo for preenchido sem que nenhuma linha ou coluna ou diagonal seja preenchida apenas com simbolos iguais.
     else if (jogada == 9) {
+      this.mostrarTabuleiro();
+
       System.out.println("A partida foi encerrada com um empate!");
       jogoEmAndamento = false;
     }
