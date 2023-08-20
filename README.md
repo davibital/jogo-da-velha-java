@@ -23,77 +23,7 @@ Feito com a linguagem Java usando Programação Orientada a Objetos.
 
 ## Diagrama de classes
 
-
-
----
-
-### Main
-
----
-
-\+ __main (String[]) : void__
-
----
-
-&nbsp;
-
---- 
-
-### Jogador
-
----
-
-\- nomeJogador : String   
-\- simbolo : char   
-
----
-
-\+ Jogador (String, char)   
-\- gerarNumeroAleatorio () : int   
-\+ fazerJogada (Tabuleiro) : void   
-
----
-
-&nbsp;
-
----
-
-### Tabuleiro
-
----
-
-\+ estadoTabuleiro : char [][]  
-\+ jogada : int  
-\+ ultimoJogador : String  
-\+ jogoEmAndamento : boolean  
-
----
-
-\+ Tabuleiro ()  
-\+ mostrarTabuleiro () : void  
-\+ verificarPosicao (int, int) : boolean  
-\+ verificarLinhas () : String  
-\+ verificarColunas () : String  
-\+ verificarDiagonais () : String  
-\+ verificarTabuleiro () : void  
-
----
-
-&nbsp;
-
----
-
-### ModoDeJogo  
-
----
-
-\+ jogadorContraJogador (Jogador, Jogador, Tabuleiro) : void  
-\+ jogadorContraComputador (Jogador, Jogador, Tabuleiro) : void  
-\+ computadorContraComputador (Jogador, Jogador, Tabuleiro) : void  
-
----
-
-&nbsp;
+![Diagrama de Classes](./diagrama_de_classes.png)
 
 ## Autor
 
