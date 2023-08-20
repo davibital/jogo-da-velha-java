@@ -4,7 +4,6 @@ public class Main {
   public static void main (String args[]) {
     Scanner keyboard = new Scanner(System.in);
     int modoDeJogo;
-    ModoDeJogo jogoSelecionado = new ModoDeJogo();
 
     System.out.println("Este eh o classico jogo da velha, disputado por 2 jogadores, cujo objetivo deles eh formar uma linha ou coluna ou diagonal com o seu respectivo simbolo. O jogo eh jogado em turnos e cada posicao eh determinada pelo numero da linha e numero da coluna, de forma similar ao jogo de batalha naval (a numeracao das linhas e das colunas vao de 0 a 2)");
     
@@ -14,13 +13,13 @@ public class Main {
 
     switch (modoDeJogo) {
       case 1:
-        jogoSelecionado.jogadorContraJogador();
+        ModoDeJogo.jogadorContraJogador();
         break;
       case 2:
-        jogoSelecionado.jogadorContraComputador();
+        ModoDeJogo.jogadorContraComputador();
         break;
       case 3:
-        jogoSelecionado.computadorContraComputador();
+        ModoDeJogo.computadorContraComputador();
         break;
       default:
         System.out.println("Modo de jogo invalido!");
