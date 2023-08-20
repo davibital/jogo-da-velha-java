@@ -2,13 +2,14 @@ import java.util.Scanner;
 import java.util.Random;
 
 class ModoDeJogo {
-  String nomeJogador1, nomeJogador2;
-  Scanner keyboard = new Scanner(System.in);
-  Jogador jogadores[];
-  Tabuleiro tabuleiro;
-  int jogadorVez;
+  static String nomeJogador1;
+  static String nomeJogador2;
+  static Scanner keyboard = new Scanner(System.in);
+  static Jogador jogadores[];
+  static Tabuleiro tabuleiro;
+  static int jogadorVez;
   
-  public void jogadorContraJogador () {
+  public static void jogadorContraJogador () {
     Random random = new Random();
     tabuleiro = Tabuleiro.getInstance();
     int linha, coluna;
@@ -45,7 +46,7 @@ class ModoDeJogo {
     keyboard.close();
   }
 
-  public void jogadorContraComputador () {
+  public static void jogadorContraComputador () {
     Random random = new Random();
     tabuleiro = Tabuleiro.getInstance();
     int linha, coluna;
@@ -86,7 +87,7 @@ class ModoDeJogo {
     keyboard.close();
   }
 
-  public void computadorContraComputador () {
+  public static void computadorContraComputador () {
     Random random = new Random();
     tabuleiro = Tabuleiro.getInstance();
     jogadorVez = random.nextInt(2);
