@@ -1,4 +1,6 @@
 class Tabuleiro {
+
+  private static Tabuleiro singleton;
   
   char estadoTabuleiro [][];
   int jogada;
@@ -6,7 +8,7 @@ class Tabuleiro {
   boolean jogoEmAndamento;
 
   // Construtor da classe
-  Tabuleiro () {
+  private Tabuleiro() {
     estadoTabuleiro = new char[3][3];
     for (int i = 0; i < estadoTabuleiro.length; i++)
       for (int j = 0; j < estadoTabuleiro.length; j++)
@@ -14,6 +16,13 @@ class Tabuleiro {
 
     jogada = 0;
     jogoEmAndamento = true;
+  }
+
+  public static Tabuleiro getInstance() {
+    if (singleton == null)
+      singleton = new Tabuleiro();
+    
+    return singleton;
   }
 
   // Função para mostrar o tabuleiro no terminal
