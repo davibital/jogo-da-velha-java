@@ -10,7 +10,7 @@ class ModoDeJogo {
   
   public void jogadorContraJogador () {
     Random random = new Random();
-    tabuleiro = new Tabuleiro();
+    tabuleiro = Tabuleiro.getInstance();
     int linha, coluna;
     jogadorVez = random.nextInt(2);
     
@@ -26,9 +26,9 @@ class ModoDeJogo {
       tabuleiro.mostrarTabuleiro();
 
       System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
-      System.out.print("Linha: ");
+      System.out.print("\nLinha: ");
       linha = keyboard.nextInt();
-      System.out.print("\nColuna: ");
+      System.out.print("Coluna: ");
       coluna = keyboard.nextInt();
 
       if (!tabuleiro.verificarPosicao(linha, coluna) || linha > 2 || coluna > 2 || linha < 0 || coluna < 0) {
@@ -38,7 +38,6 @@ class ModoDeJogo {
 
       jogadores[jogadorVez].fazerJogada(tabuleiro, linha, coluna);
       
-      tabuleiro.mostrarTabuleiro();
       tabuleiro.verificarTabuleiro();
       jogadorVez = (jogadorVez + 1) % 2;
     }
@@ -48,7 +47,7 @@ class ModoDeJogo {
 
   public void jogadorContraComputador () {
     Random random = new Random();
-    tabuleiro = new Tabuleiro();
+    tabuleiro = Tabuleiro.getInstance();
     int linha, coluna;
     jogadorVez = random.nextInt(2);
     
@@ -64,9 +63,9 @@ class ModoDeJogo {
       tabuleiro.mostrarTabuleiro();
       if (jogadorVez == 0) {
         System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
-        System.out.print("Linha: ");
+        System.out.print("\nLinha: ");
         linha = keyboard.nextInt();
-        System.out.print("\nColuna: ");
+        System.out.print("Coluna: ");
         coluna = keyboard.nextInt();
         if (!tabuleiro.verificarPosicao(linha, coluna) || linha > 2 || coluna > 2 || linha < 0 || coluna < 0) {
           System.out.println("Posicao invalida, faca uma nova jogada.");
@@ -80,7 +79,6 @@ class ModoDeJogo {
         jogadores[jogadorVez].fazerJogada(tabuleiro);
       }
 
-      tabuleiro.mostrarTabuleiro();
       tabuleiro.verificarTabuleiro();
       jogadorVez = (jogadorVez + 1) % 2;
     }
@@ -90,7 +88,7 @@ class ModoDeJogo {
 
   public void computadorContraComputador () {
     Random random = new Random();
-    tabuleiro = new Tabuleiro();
+    tabuleiro = Tabuleiro.getInstance();
     jogadorVez = random.nextInt(2);
     
     System.out.println("Digite o nome do primeiro jogador (este jogara com o simbolo X): ");
@@ -106,7 +104,6 @@ class ModoDeJogo {
       System.out.println("\nVez do jogador " + jogadores[jogadorVez].nomeJogador + ":");
       jogadores[jogadorVez].fazerJogada(tabuleiro);
 
-      tabuleiro.mostrarTabuleiro();
       tabuleiro.verificarTabuleiro();
       jogadorVez = (jogadorVez + 1) % 2;
     }
